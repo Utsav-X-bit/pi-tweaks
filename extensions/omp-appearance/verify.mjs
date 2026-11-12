@@ -27,7 +27,7 @@ assert.equal(palette.colors.toolDiffAdded, 'green');
 assert.equal(palette.colors.toolDiffRemoved, 'red');
 const settings = JSON.parse(readFileSync(`${home}/settings.json`));
 assert.equal(settings.theme, 'omp-dark');
-assert(!settings.packages.includes('npm:pi-tool-display'));
+assert(!(settings.packages ?? []).includes('npm:pi-tool-display'));
 
 const loaded = await loadExtensions([`${home}/extensions/omp-appearance/index.ts`, `${home}/extensions/pi-statusline/index.ts`], '/tmp');
 assert.deepEqual(loaded.errors, []);
