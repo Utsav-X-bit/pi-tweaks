@@ -53,7 +53,15 @@ else
   node "$REPO_DIR/settings.merge.mjs" "$AGENT_DIR/settings.json" "$TUI_MODE"
 fi
 
-# 5. MCP servers are device-specific; only seed an example when none exists.
+# 5. Optional: install the Pi packages used alongside these files.
+if [ "${PI_INSTALL_PACKAGES:-0}" = "1" ] && command -v pi >/dev/null 2>&1; then
+  grep -v '^#' "$REPO_DIR/packages.txt" | grep -v '^$' | while read -r pkg; do
+    echo "pi install $pkg"
+    pi install "$pkg" >/dev/null 2>&1 || echo "  failed: $pkg" >&2
+  done
+fi
+
+# 6. MCP servers are device-specific; only seed an example when none exists.
 if [ ! -f "$AGENT_DIR/mcp.json" ] && [ -f "$REPO_DIR/examples/mcp.json" ]; then
   cp "$REPO_DIR/examples/mcp.json" "$AGENT_DIR/mcp.json"
   echo "mcp:       seeded from examples/mcp.json (edit paths and keys)"
@@ -64,5 +72,6 @@ cat <<EOF
 done. next steps:
   1. restart pi (or run /reload) so extensions and the theme load
   2. verify:  node "$AGENT_DIR/extensions/omp-appearance/verify.mjs"
-  3. undo:    copy files back from $BACKUP
+  3. packages: sh install.sh with PI_INSTALL_PACKAGES=1, or see packages.txt
+  4. undo:    copy files back from $BACKUP
 EOF

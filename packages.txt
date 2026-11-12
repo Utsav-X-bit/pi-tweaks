@@ -1,0 +1,21 @@
+# Pi packages used on my devices. Install with:
+#   pi install <name>            (one per line below)
+# Not installed by install.sh unless PI_INSTALL_PACKAGES=1.
+npm:pi-bansos
+npm:pi-web-access
+npm:pi-subagents
+npm:@juicesharp/rpiv-ask-user-question
+npm:@dietrichgebert/ponytail
+npm:@juicesharp/rpiv-todo
+npm:pi-lens
+npm:pi-btw
+npm:pi-goal-x
+npm:pi-background-tasks@latest
+npm:@ff-labs/pi-fff
+npm:pi-cache-optimizer
+npm:@injaneity/pi-computer-use
+npm:pi-llama-cpp
+npm:pi-checkpoints
+npm:pi-model-pick
+npm:pi-rtk-optimizer
+git:github.com/earendil-works/pi-review
