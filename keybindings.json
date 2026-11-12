@@ -1,0 +1,6 @@
+{
+  "tui.editor.deleteWordBackward": ["ctrl+backspace", "ctrl+w", "alt+backspace"],
+  "tui.editor.deleteWordForward": ["ctrl+delete", "alt+d", "alt+delete"],
+  "tui.editor.cursorLineEnd": ["end", "ctrl+e"],
+  "tui.editor.cursorLineStart": ["home", "ctrl+a"]
+}

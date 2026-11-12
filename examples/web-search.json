@@ -1,0 +1,5 @@
+{
+  "allowBrowserCookies": true,
+  "firecrawlApiKey": "YOUR_KEY",
+  "firecrawlBaseUrl": "https://api.firecrawl.dev"
+}
